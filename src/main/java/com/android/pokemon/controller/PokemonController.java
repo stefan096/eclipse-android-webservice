@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.android.pokemon.dto.ListPokemon;
 import com.android.pokemon.model.Pokemon;
 import com.android.pokemon.service.PokemonService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -47,12 +46,6 @@ public class PokemonController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "api/pokemon/all/object", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Void> createAll(@RequestBody ListPokemon listPokemon) {
-		pokemonService.saveAll(listPokemon.getPokemons());
-		
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
 	
 	@RequestMapping(value = "api/pokemon/all/string", method = RequestMethod.POST)
 	public ResponseEntity<Void> createAll(@RequestBody String tempValue) {
@@ -76,13 +69,6 @@ public class PokemonController {
 	@RequestMapping(value = "api/pokemon/proba", method = RequestMethod.GET)
 	public ResponseEntity<Void> createAllProba() {
 		System.out.println("USAOO GET");
-		
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
-	
-	@RequestMapping(value = "api/pokemon/proba", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Void> createAllProbaPost() {
-		System.out.println("USAOO POST");
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
